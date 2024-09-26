@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="title: &ldquo;标题内容&rdquo; date: 文章创造时间 image: 封面图片 categories：文章分类 tags：文章添加标签 draft: true 表示为草稿文件，正式发">
+<title>Hugo部署静态博客</title>
+
+<link rel='canonical' href='https://Mr-qingjiegong.github.io/p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/'>
+
+<link rel="stylesheet" href="/scss/style.min.d368f4f7632b410d4235195bda664e5bc42ca04afcf0feb15c9096bf0944948e.css"><meta property='og:title' content="Hugo部署静态博客">
+<meta property='og:description' content="title: &ldquo;标题内容&rdquo; date: 文章创造时间 image: 封面图片 categories：文章分类 tags：文章添加标签 draft: true 表示为草稿文件，正式发">
+<meta property='og:url' content='https://Mr-qingjiegong.github.io/p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/'>
+<meta property='og:site_name' content='qingjiegong&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='hugo' /><meta property='article:tag' content='blog' /><meta property='article:published_time' content='2024-09-20T12:06:24&#43;08:00'/><meta property='article:modified_time' content='2024-09-27T00:26:29&#43;08:00'/>
+<meta name="twitter:title" content="Hugo部署静态博客">
+<meta name="twitter:description" content="title: &ldquo;标题内容&rdquo; date: 文章创造时间 image: 封面图片 categories：文章分类 tags：文章添加标签 draft: true 表示为草稿文件，正式发">
+    <link rel="shortcut icon" href="/qingjiegong.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="https://mr-qingjiegong.github.io">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/qingjiegong_hu8d8cb97884cae8eefc6672bf5d9adf29_12207_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">qingjiegong&#39;s Blog</a></h1>
+            <h2 class="site-description">吃水果嘛？卖荔枝哦！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/mr-qingjiegong'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1725908862181" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6114" id="mx_n_1725908862182" width="24.5859375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#2c3e50" p-id="6115"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#2c3e50" p-id="6116"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/53318096'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1726642757920" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4266" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M262.4 64h499.2C892.8 64 960 131.2 960 262.4v499.2c0 131.2-67.2 198.4-198.4 198.4H262.4C131.2 960 64 892.8 64 761.6V262.4C64 131.2 131.2 64 262.4 64z" fill="#FF5CA1" p-id="4267"></path><path d="M707.2 454.4c3.2 0 16-3.2 16-3.2l6.4 48-12.8 3.2c0-6.4-9.6-44.8-9.6-48m25.6-6.4l6.4 51.2h19.2c-3.2-19.2-9.6-51.2-9.6-51.2h-16m-12.8 70.4s28.8-6.4 38.4-3.2c6.4 19.2 16 128 16 131.2-6.4 0-28.8 3.2-28.8 3.2-3.2-6.4-25.6-124.8-25.6-131.2m105.6-64h16c0 3.2 3.2 48 0 48h-12.8c0-3.2-3.2-44.8-3.2-48m22.4 0v51.2h19.2v-51.2c-6.4 0-12.8-3.2-19.2 0m-19.2 67.2s28.8-3.2 38.4 0c3.2 22.4 3.2 128 3.2 131.2h-28.8c0-6.4-12.8-128-12.8-131.2m-67.2-131.2c16 86.4 28.8 236.8 32 246.4h28.8c-12.8-92.8-22.4-243.2-22.4-246.4-3.2-6.4-38.4 0-38.4 0m-38.4 208c-3.2-25.6-89.6-51.2-140.8-44.8 0 0-6.4-54.4-9.6-105.6-3.2-44.8 0-89.6 0-96-3.2-3.2-38.4 16-57.6 22.4 0 0 22.4 96 38.4 297.6 0 0 25.6 3.2 70.4-6.4 51.2-9.6 102.4-35.2 99.2-67.2M617.6 640l-9.6-54.4c3.2 0 48 16 54.4 19.2 0 3.2-44.8 35.2-44.8 35.2m-275.2-185.6c3.2 0 16-3.2 16-3.2l6.4 48c-3.2 0-12.8 3.2-12.8 3.2 0-6.4-9.6-44.8-9.6-48m25.6-6.4l6.4 51.2h19.2c-3.2-19.2-6.4-51.2-6.4-51.2h-19.2m-12.8 70.4s28.8-6.4 38.4-3.2c6.4 19.2 16 128 16 131.2-6.4 0-28.8 3.2-28.8 3.2-3.2-6.4-25.6-124.8-25.6-131.2m105.6-64h16c0 3.2 3.2 48 0 48h-12.8c0-3.2-3.2-44.8-3.2-48m25.6 0v51.2h19.2v-51.2c-6.4 0-12.8-3.2-19.2 0m-22.4 67.2s28.8-3.2 38.4 0c3.2 22.4 3.2 128 3.2 131.2h-28.8c0-6.4-12.8-128-12.8-131.2m-67.2-131.2c16 86.4 28.8 236.8 32 246.4h28.8c-9.6-92.8-19.2-243.2-19.2-249.6-6.4-3.2-41.6 3.2-41.6 3.2m-38.4 208c-3.2-25.6-89.6-51.2-140.8-44.8 0 0-6.4-54.4-9.6-105.6-3.2-44.8 0-89.6 0-96-3.2-3.2-38.4 16-57.6 22.4 0 0 22.4 96 38.4 297.6 0 0 25.6 3.2 70.4-6.4s105.6-35.2 99.2-67.2M252.8 640l-6.4-54.4c3.2 0 48 16 54.4 19.2-3.2 3.2-48 35.2-48 35.2" fill="#FFFFFF" p-id="4268"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/qingjiegong0727'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1725909865470" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7073" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M511.877 64.434c-247.191 0-447.579 200.388-447.579 447.58s200.388 447.579 447.579 447.579 447.579-200.388 447.579-447.579-200.387-447.58-447.579-447.58z m256.885 357.662c0.273 5.559 0.341 11.118 0.341 16.748 0 170.483-126.686 367.294-358.302 367.294-71.169 0-137.326-21.328-193.047-58.215 9.821 1.224 19.949 1.923 30.111 1.923 58.961 0 113.285-20.594 156.354-55.313-55.074-0.909-101.622-38.076-117.649-89.647 7.741 1.678 15.584 2.377 23.666 2.377 11.492 0 22.643-1.573 33.249-4.405-57.665-12.028-101.042-64.193-101.042-126.604 0-0.525 0-1.189 0.034-1.748 16.914 9.825 36.284 15.384 56.983 16.083-33.828-23.006-56.063-62.655-56.063-107.409 0-23.6 6.275-45.733 17.085-64.788 62.064 78.074 154.956 129.471 259.511 134.75-2.08-9.37-3.274-19.195-3.274-29.404 0-71.291 56.404-129.121 125.97-129.121 36.216 0 68.987 15.804 91.903 40.943 28.782-5.979 55.756-16.538 80.07-31.293-9.412 30.104-29.361 55.313-55.483 71.291 25.508-3.077 49.754-10.035 72.397-20.279-16.913 25.804-38.227 48.566-62.814 66.817z" fill="#2DA9E3" p-id="7074"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#环境准备">环境准备</a>
+      <ol>
+        <li><a href="#安装git">安装git</a></li>
+        <li><a href="#安装hugo">安装hugo</a></li>
+      </ol>
+    </li>
+    <li><a href="#搭建博客">搭建博客</a>
+      <ol>
+        <li><a href="#创建博客">创建博客</a></li>
+        <li><a href="#配置主题">配置主题</a></li>
+      </ol>
+    </li>
+    <li><a href="#github部署">Github部署</a>
+      <ol>
+        <li><a href="#常规部署">常规部署</a></li>
+        <li><a href="#github-action自动部署">Github Action自动部署</a></li>
+        <li><a href="#脚本控制部署">脚本控制部署</a>
+          <ol>
+            <li><a href="#shell脚本">shell脚本</a></li>
+            <li><a href="#bat脚本">bat脚本</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#音乐播放器设置">音乐播放器设置</a>
+      <ol>
+        <li><a href="#引入音乐播放器">引入音乐播放器</a></li>
+        <li><a href="#音乐播放器样式切换">音乐播放器样式切换</a></li>
+        <li><a href="#音乐播放进度保留">音乐播放进度保留</a></li>
+        <li><a href="#引入pjax">引入PJAX</a>
+          <ol>
+            <li><a href="#基本引入">基本引入</a></li>
+            <li><a href="#文章样式修复">文章样式修复</a></li>
+            <li><a href="#主题切换修复">主题切换修复</a></li>
+            <li><a href="#文章搜索修复">文章搜索修复</a></li>
+            <li><a href="#搜索内容跳转修复">搜索内容跳转修复</a></li>
+            <li><a href="#文章评论修复">文章评论修复</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#引入进度条">引入进度条</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/hugo/" >
+                Hugo
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">Hugo部署静态博客</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 20, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+	
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>title: &ldquo;标题内容&rdquo;</p>
+<p>date: 文章创造时间</p>
+<p>image: 封面图片</p>
+<p>categories：文章分类</p>
+<p>tags：文章添加标签</p>
+<p>draft: true 表示为草稿文件，正式发布前需将值修改为 false，或者直接删除 draft 整个参数，否则正式发布时不会生成文章。</p>
+<h2 id="简介">简介
+</h2><p>为啥采用hugo，不采用hexo框架？</p>
+<p>问题很好，没办法解释，两个框架都使用过，个人感觉hexo在主题上更丰富些，hugo在维护上更方便点，所以还是用回了hugo</p>
+<p>文章搬运再修饰了脚本控制部分 ： <a class="link" href="https://letere-gzj.github.io/hugo-stack/"  target="_blank" rel="noopener"
+    >https://letere-gzj.github.io/hugo-stack/</a>  （啥？喷我搬运！人家已经写得非常好了，艺术品欣赏就好何必自己欺骗自己说是自己的呢🤡）</p>
+<h2 id="环境准备">环境准备
+</h2><h3 id="安装git">安装git
+</h3><ul>
+<li>前往【<a class="link" href="https://git-scm.com/"  target="_blank" rel="noopener"
+    >Git官网</a>】，下载安装程序</li>
+<li>一直点下一步，默认安装即可</li>
+</ul>
+<p><img src="/p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/image-20240920111531850-17268021497931.png"
+	width="1920"
+	height="891"
+	srcset="/p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/image-20240920111531850-17268021497931_hub28a8b8e0f265e781ed46fb473e7098c_533795_480x0_resize_box_3.png 480w, /p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/image-20240920111531850-17268021497931_hub28a8b8e0f265e781ed46fb473e7098c_533795_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="image-20240920111531850"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="215"
+		data-flex-basis="517px"
+	
+></p>
+<h3 id="安装hugo">安装hugo
+</h3><p>官网：<strong><a class="link" href="https://gohugo.io/"  target="_blank" rel="noopener"
+    >The world’s fastest framework for building websites | Hugo (gohugo.io)</a></strong></p>
+<ul>
+<li>前往【<a class="link" href="https://github.com/gohugoio/hugo/tags"  target="_blank" rel="noopener"
+    >Hugo Github Tags</a>】，选择对应版本下载，下载后解压即可</li>
+<li>Windows下载版本：<strong>hugo_extended_xxxxx_windows_amd64.zip</strong></li>
+</ul>
+<p><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/hugo%E4%B8%8B%E8%BD%BD.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></p>
+<h2 id="搭建博客">搭建博客
+</h2><h3 id="创建博客">创建博客
+</h3><ul>
+<li>（1）在<strong>hugo.exe</strong>所在文件夹的地址栏敲打cmd，然后Enter唤起命令行</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/1%e5%90%af%e5%8a%a8cmd.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1%E5%90%AF%E5%8A%A8cmd.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（2）敲打命令<code>hugo new site xxxx</code>创建hugo文件</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/2newSite.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/2newSite.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（3）敲打命名<code>cd xxxx</code>切换目录，并把<strong>hugo.exe</strong>复制到刚生成的文件夹中</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/3cd.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/3cd.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p>目录结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── archetypes      # 存放文章模板
+</span></span><span class="line"><span class="cl">├── config.toml     # 简单的配置文件
+</span></span><span class="line"><span class="cl">├── content         # 存放文章
+</span></span><span class="line"><span class="cl">├── data            # 存放生成静态页面时的配置文件
+</span></span><span class="line"><span class="cl">├── layouts         # 存放页面布局的模板
+</span></span><span class="line"><span class="cl">├── static          # 存放图片等静态内容
+</span></span><span class="line"><span class="cl">└── themes          # 存放下载的主题
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>（4）敲打命令<code>hugo server -D</code>启动服务，访问<a class="link" href="http://localhost:1313/"  target="_blank" rel="noopener"
+    >http://localhost:1313</a>，Ctrl+C停止服务 <strong>（hugo默认是没有主题的，需要进行主题配置）</strong></li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/4server.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/4server.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/5pageNotFind.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/5pageNotFind.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<hr>
+<h3 id="配置主题">配置主题
+</h3><ul>
+<li>（1）前往【<a class="link" href="https://themes.gohugo.io/"  target="_blank" rel="noopener"
+    >Hugo Themes</a>】，查找自己喜欢的主题，进行下载</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/1.1hugo%e4%b8%bb%e9%a2%98%e4%b8%8b%e8%bd%bd.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.1hugo%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（2）这边以【<a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack/tags"  target="_blank" rel="noopener"
+    >Stack主题</a>】为例，将下载好的主题解压，放到<code>/themes</code>文件夹中</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/1.2%e4%b8%bb%e9%a2%98%e8%a7%a3%e5%8e%8b.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.2%E4%B8%BB%E9%A2%98%E8%A7%A3%E5%8E%8B.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（3）将<code>exampleSite</code>样例数据中的 <strong>Content</strong> 和 <strong>hugo.yaml</strong> 复制到主文件夹中，并删掉<code>hugo.toml</code>和<code>content/post/rich-content</code></li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/1.3%e4%b8%bb%e9%a2%98%e5%a4%8d%e5%88%b61.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.3%E4%B8%BB%E9%A2%98%E5%A4%8D%E5%88%B61.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/1.4%e4%b8%bb%e9%a2%98%e5%a4%8d%e5%88%b62.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.4%E4%B8%BB%E9%A2%98%E5%A4%8D%E5%88%B62.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（4）修改 <strong>hugo.yaml</strong> 中的 <strong>theme</strong>，将他修改为跟主题文件夹同名</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/1.5%e4%b8%bb%e9%a2%98%e5%90%8d%e4%bf%ae%e6%94%b9.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/1.5%E4%B8%BB%E9%A2%98%E5%90%8D%E4%BF%AE%E6%94%B9.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（5）再次启动hugo服务，查看主题，具体主题配置修改 <strong>hugo.yaml</strong>，这里不细说，感兴趣可自行查找相关文章</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/stack%e4%b8%bb%e9%a2%98.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/stack%E4%B8%BB%E9%A2%98.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<hr>
+<h2 id="github部署">Github部署
+</h2><h3 id="常规部署">常规部署
+</h3><ul>
+<li>（1）前往【<a class="link" href="https://github.com/"  target="_blank" rel="noopener"
+    >Github官网</a>】，创建仓库 <strong>{github用户名}.github.io</strong></li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/github%e4%bb%93%e5%ba%93%e5%88%9b%e5%bb%ba.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/github%E4%BB%93%E5%BA%93%E5%88%9B%E5%BB%BA.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（2）前往<code>Setting -&gt; Pages -&gt; Branch</code>选择main分支，然后保存，会自动开启 <strong>https://{github用户名}.github.io</strong> 的地址，这地址也是以后访问博客的地址</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/githubPage%e5%90%af%e5%8a%a8.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/githubPage%E5%90%AF%E5%8A%A8.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（3）回到hugo文件中，执行命令<code>hugo -D</code>，会生成 <strong>public</strong> 静态资源文件夹</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/%e7%94%9f%e6%88%90%e9%9d%99%e6%80%81%e6%96%87%e4%bb%b6.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（4）在 <strong>public</strong> 执行以下命令上传到github仓库上，第一次上传可能需要输入账号密码</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git remote add origin <span class="o">{</span>你的github仓库地址<span class="o">}</span>
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>（5）上传成功后访问 <strong>https://{github用户名}.github.io</strong>，成功搭建属于自己的Hugo博客</li>
+</ul>
+<h3 id="github-action自动部署">Github Action自动部署
+</h3><ul>
+<li>（1）Github创建一个新的仓库，用于存放Hugo的主文件</li>
+<li>（2）前往<code>Setttings -&gt; Developer Settings -&gt; Personal access tokens</code>，创建一个token(classic)</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/createToken1.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/createToken1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（3）token选择永不过期，并勾选 <strong>repo</strong> 和 <strong>workflow</strong> 选项</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/createToken2.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/createToken2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（4）为保证安全，将生成的token，保存的仓库的变量中，前往<code>Settings -&gt; Secrets and variables -&gt; Actions</code>中设置</li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/createToken3.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/createToken3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/setToken1.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/setToken1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（5）在hugo主文件创建一个<code>.github/workflows/xxxx.yaml</code>文件，将以下内容复制进去，想具体了解更多，可查看【<a class="link" href="https://docs.github.com/zh/actions"  target="_blank" rel="noopener"
+    >Github Action文档</a>】</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">deploy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># 代码提交到main分支时触发github action</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-hugo@v3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">hugo-version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;latest&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">extended</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build Web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">hugo -D</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">peaceiris/actions-gh-pages@v4</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">PERSONAL_TOKEN</span><span class="p">:</span><span class="w"> </span><span class="l">${{ secrets.你的token变量名 }}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">EXTERNAL_REPOSITORY</span><span class="p">:</span><span class="w"> </span><span class="l">你的github名/你的仓库名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">PUBLISH_BRANCH</span><span class="p">:</span><span class="w"> </span><span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">PUBLISH_DIR</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">commit_message</span><span class="p">:</span><span class="w"> </span><span class="l">auto deploy</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>（6）在hugo主文件创建<code>.gitignore</code>文件，来避免提交不必要的文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 自动生成的文件</span>
+</span></span><span class="line"><span class="cl">public
+</span></span><span class="line"><span class="cl">resources
+</span></span><span class="line"><span class="cl">.hugo_build.lock
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># hugo命令</span>
+</span></span><span class="line"><span class="cl">hugo.exe
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>（7）将hugo的主文件上传到仓库，上传成功后会触发Github Action，来自动部署你的静态页面</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git remote add origin <span class="o">{</span>你的github仓库地址<span class="o">}</span>
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%e5%85%8d%e8%b4%b9%e9%83%a8%e7%bd%b2%e8%87%aa%e5%b7%b1%e7%9a%84%e5%8d%9a%e5%ae%a2/githubActionRun.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugohugo--github-%E5%85%8D%E8%B4%B9%E9%83%A8%E7%BD%B2%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/githubActionRun.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<h3 id="脚本控制部署">脚本控制部署
+</h3><p>做GitHub action自动化流程控制任务时，发现上传文件的时候并不符合，既然依旧需要git push进行上传，何不用脚本来进行编写控制能，还省去一堆麻烦</p>
+<h4 id="shell脚本">shell脚本
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">//删除public文件夹
+</span></span><span class="line"><span class="cl">rf -rf D:<span class="se">\h</span>ugo<span class="se">\q</span>ingjiegong<span class="se">\p</span>ublic
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//hugo生成站点文件
+</span></span><span class="line"><span class="cl">hugo -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">//GitHub上传更新
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> public
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add .
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;update&#34;</span>
+</span></span><span class="line"><span class="cl">//git branch -M master    //master还是main分支看自己部署时的存放路径
+</span></span><span class="line"><span class="cl">//git remote add origin https://你的GitHub仓库名.git
+</span></span><span class="line"><span class="cl">//git push -u origin master    
+</span></span><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="bat脚本">bat脚本
+</h4><p>Windows系统采用bat脚本，文件后缀名为.bat</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="p">//</span><span class="n">删除public文件夹</span>
+</span></span><span class="line"><span class="cl"><span class="nb">rd </span><span class="p">/</span><span class="n">s</span> <span class="p">/</span><span class="n">q</span> <span class="n">D:</span><span class="p">\</span><span class="n">hugo</span><span class="p">\</span><span class="n">qingjiegong</span><span class="p">\</span><span class="n">public</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">//</span><span class="n">hugo生成站点文件</span>
+</span></span><span class="line"><span class="cl"><span class="n">hugo</span> <span class="n">-D</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">//</span><span class="n">GitHub上传更新</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd </span><span class="n">public</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">init</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">commit</span> <span class="n">-m</span> <span class="s2">&#34;update&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="p">//</span><span class="n">git</span> <span class="n">branch</span> <span class="n">-M</span> <span class="n">master</span>    <span class="p">//</span><span class="n">master还是main分支看自己部署时的存放路径</span>
+</span></span><span class="line"><span class="cl"><span class="p">//</span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">你的GitHub仓库名</span><span class="p">.</span><span class="py">git</span>
+</span></span><span class="line"><span class="cl"><span class="p">//</span><span class="n">git</span> <span class="n">push</span> <span class="n">-u</span> <span class="n">origin</span> <span class="n">master</span>    
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">push</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="音乐播放器设置">音乐播放器设置
+</h2><h3 id="引入音乐播放器">引入音乐播放器
+</h3><ul>
+<li>【<a class="link" href="https://aplayer.js.org/#/zh-Hans/"  target="_blank" rel="noopener"
+    >Aplayer官方文档</a>】</li>
+</ul>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th style="text-align:left">名称</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">container</td>
+<td style="text-align:left">document.querySelector(’.aplayer')</td>
+<td style="text-align:left">播放器容器元素</td>
+</tr>
+<tr>
+<td style="text-align:left">fixed</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">开启吸底模式, <a class="link" href="https://aplayer.js.org/#/home?id=fixed-mode"  target="_blank" rel="noopener"
+    >详情</a></td>
+</tr>
+<tr>
+<td style="text-align:left">mini</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">开启迷你模式, <a class="link" href="https://aplayer.js.org/#/home?id=mini-mode"  target="_blank" rel="noopener"
+    >详情</a></td>
+</tr>
+<tr>
+<td style="text-align:left">autoplay</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">音频自动播放</td>
+</tr>
+<tr>
+<td style="text-align:left">theme</td>
+<td style="text-align:left">‘#b7daff’</td>
+<td style="text-align:left">主题色</td>
+</tr>
+<tr>
+<td style="text-align:left">loop</td>
+<td style="text-align:left">‘all’</td>
+<td style="text-align:left">音频循环播放, 可选值: ‘all’, ‘one’, ’none’</td>
+</tr>
+<tr>
+<td style="text-align:left">order</td>
+<td style="text-align:left">’list’</td>
+<td style="text-align:left">音频循环顺序, 可选值: ’list’, ‘random’</td>
+</tr>
+<tr>
+<td style="text-align:left">preload</td>
+<td style="text-align:left">‘auto’</td>
+<td style="text-align:left">预加载，可选值: ’none’, ‘metadata’, ‘auto’</td>
+</tr>
+<tr>
+<td style="text-align:left">volume</td>
+<td style="text-align:left">0.7</td>
+<td style="text-align:left">默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效</td>
+</tr>
+<tr>
+<td style="text-align:left">audio</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">音频信息, 应该是一个对象或对象数组</td>
+</tr>
+<tr>
+<td style="text-align:left">audio.name</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">音频名称</td>
+</tr>
+<tr>
+<td style="text-align:left">audio.artist</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">音频艺术家</td>
+</tr>
+<tr>
+<td style="text-align:left">audio.url</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">音频链接</td>
+</tr>
+<tr>
+<td style="text-align:left">audio.cover</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">音频封面</td>
+</tr>
+<tr>
+<td style="text-align:left">audio.lrc</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left"><a class="link" href="https://aplayer.js.org/#/home?id=lrc"  target="_blank" rel="noopener"
+    >详情</a></td>
+</tr>
+<tr>
+<td style="text-align:left">audio.theme</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">切换到此音频时的主题色，比上面的 theme 优先级高</td>
+</tr>
+<tr>
+<td style="text-align:left">audio.type</td>
+<td style="text-align:left">‘auto’</td>
+<td style="text-align:left">可选值: ‘auto’, ‘hls’, ’normal’ 或其他自定义类型, <a class="link" href="https://aplayer.js.org/#/home?id=mse-support"  target="_blank" rel="noopener"
+    >详情</a></td>
+</tr>
+<tr>
+<td style="text-align:left">customAudioType</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">自定义类型，<a class="link" href="https://aplayer.js.org/#/home?id=mse-support"  target="_blank" rel="noopener"
+    >详情</a></td>
+</tr>
+<tr>
+<td style="text-align:left">mutex</td>
+<td style="text-align:left">true</td>
+<td style="text-align:left">互斥，阻止多个播放器同时播放，当前播放器播放时暂停其他播放器</td>
+</tr>
+<tr>
+<td style="text-align:left">lrcType</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><a class="link" href="https://aplayer.js.org/#/home?id=lrc"  target="_blank" rel="noopener"
+    >详情</a></td>
+</tr>
+<tr>
+<td style="text-align:left">listFolded</td>
+<td style="text-align:left">false</td>
+<td style="text-align:left">列表默认折叠</td>
+</tr>
+<tr>
+<td style="text-align:left">listMaxHeight</td>
+<td style="text-align:left">-</td>
+<td style="text-align:left">列表最大高度</td>
+</tr>
+<tr>
+<td style="text-align:left">storageName</td>
+<td style="text-align:left">‘aplayer-setting’</td>
+<td style="text-align:left">存储播放器设置的 localStorage key</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>（1）在博客主目录中创建文件<code>layouts\partials\footer\custom.html</code>，此文件为Stack主题作者留给我们加入自定义组件用的文件(可以查看主题源码同路径文件找到) <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%BC%95%E5%85%A51.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（2）查看官方文档，引入对应的脚本，css到<code>custom.html</code>中，页面最下面就会出现音乐播放器</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 【custom.html】 --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;aplayer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">ap</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">APlayer</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">container</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;aplayer&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">audio</span><span class="o">:</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e5%99%a8%e5%bc%95%e5%85%a52.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%BC%95%E5%85%A52.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（3）修改 <strong>ap对象</strong> 配置，改成吸底模式</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">const ap = new APlayer({
+</span></span><span class="line"><span class="cl">    ...,
+</span></span><span class="line"><span class="cl">    // 吸底模式
+</span></span><span class="line"><span class="cl">    fixed: true
+</span></span><span class="line"><span class="cl">});
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e5%99%a8%e5%bc%95%e5%85%a53.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%BC%95%E5%85%A53.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<ul>
+<li>（4）填写 audio 数组，引入歌曲，封面和歌词
+<ul>
+<li><strong>lrcType</strong> 的值具体看【<a class="link" href="https://aplayer.js.org/#/zh-Hans/?id=%e6%ad%8c%e8%af%8d"  target="_blank" rel="noopener"
+    >文档</a>】</li>
+<li>歌曲，封面，歌词支持远程链接 or 本地路径</li>
+<li>若想通过本地路径引入，请将资源文件放在<code>static</code>文件夹下，通过hugo方法<code>{{ .Site.Home.Permalink }}</code>，获取网站主路径来拼接文件路径，进行引入</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">const staticDir = {{ .Site.Home.Permalink }}
+</span></span><span class="line"><span class="cl">const ap = new APlayer({
+</span></span><span class="line"><span class="cl">    ...,
+</span></span><span class="line"><span class="cl">    lrcType: 3,
+</span></span><span class="line"><span class="cl">    audio: [
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">             name: &#39;name&#39;, // 歌名
+</span></span><span class="line"><span class="cl">             artist: &#39;artist&#39;, // 歌手
+</span></span><span class="line"><span class="cl">             url: &#39;url.mp3&#39;, // 歌曲路径
+</span></span><span class="line"><span class="cl">             cover: &#39;cover.jpg&#39;, // 封面路径
+</span></span><span class="line"><span class="cl">             lrc: &#39;lrc.lrc&#39;, // 歌词路径
+</span></span><span class="line"><span class="cl">        },
+</span></span><span class="line"><span class="cl">        {
+</span></span><span class="line"><span class="cl">            // 本地路径引入写法（有子目录就在staticDir后面继续拼接）
+</span></span><span class="line"><span class="cl">            name: &#39;name&#39;,
+</span></span><span class="line"><span class="cl">            artist: &#39;artist&#39;,
+</span></span><span class="line"><span class="cl">            url: staticDir + &#39;url.mp3&#39;,
+</span></span><span class="line"><span class="cl">            cover: staticDir + &#39;cover.jpg&#39;,
+</span></span><span class="line"><span class="cl">            lrc: staticDir + &#39;lrc.lrc&#39;,
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    ]
+</span></span><span class="line"><span class="cl">});
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e5%99%a8%e5%bc%95%e5%85%a54.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8%E5%BC%95%E5%85%A54.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><em><strong>到这一步音乐播放器已经引入完了</strong></em></p>
+<h3 id="音乐播放器样式切换">音乐播放器样式切换
+</h3><ul>
+<li>（1）通过阅读Stack主题的源码可以看到，主题样式的切换是通过<code>[data-scheme=&quot;light/darck&quot;] {...}</code></li>
+<li>（2）所以我们可以准备两种Aplayer的css，用<code>[data-scheme=&quot;light&quot;]{ 亮的css样式 }</code>包裹亮的，用<code>[data-scheme=&quot;dark&quot;]{ 暗的css样式 }</code>包裹暗的，这里直接给各位准备好了
+<ul>
+<li><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/aplayer-light.scss"  target="_blank" rel="noopener"
+    >aplayer-light.scss</a>（Ctrl+S保存）</li>
+<li><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/aplayer-dark.scss"  target="_blank" rel="noopener"
+    >aplayer-dark.scss</a>（Ctrl+S保存）</li>
+</ul>
+</li>
+<li>（3）在博客主目录中创建文件<code>assets\scss\custom.scss</code>，此文件为Stack主题作者留给我们加入自定义样式用的文件(可以查看主题源码同路径文件找到) <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%92%AD%E6%94%BE%E5%99%A8%E6%A0%B7%E5%BC%8F%E5%88%87%E6%8D%A21.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（4）将上述两个scss文件放到跟 <strong>custom.scss</strong>同目录下，并通过<code>@import</code>来进行引入文件</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-scss" data-lang="scss"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 【custom.scss】
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="k">@import</span> <span class="s2">&#34;aplayer-light.scss&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">@import</span> <span class="s2">&#34;aplayer-dark.scss&#34;</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>（5）因为音乐播放器的css改为我们本地文件引入了，所以 <strong>custom.html</strong> 中的link标签可以将它注释掉或者删掉了</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- custom.html --&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- &lt;link rel=&#34;stylesheet&#34; href=&#34;https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css&#34;&gt; --&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/%e6%92%ad%e6%94%be%e5%99%a8%e6%a0%b7%e5%bc%8f%e5%88%87%e6%8d%a22.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%92%AD%E6%94%BE%E5%99%A8%E6%A0%B7%E5%BC%8F%E5%88%87%E6%8D%A22.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><em><strong>到这一步样式随主题切换已经完成了</strong></em></p>
+<hr>
+<h3 id="音乐播放进度保留">音乐播放进度保留
+</h3><ul>
+<li>（1）实现思路：页面切换前，把歌曲的 <strong>歌曲序号</strong>，<strong>播放时长</strong>，<strong>播放状态</strong> 记录下来；在页面切换加载完之后，我们调用Aplayer的接口切换歌曲，调整时长，并选择播放or暂停</li>
+<li>（2）通过<code>console.log(ap)</code>打印ap对象，或者官方文档，可以找到我们需要的参数
+<ul>
+<li><strong>list.index</strong>：歌曲序号</li>
+<li><strong>audio.currentTime</strong>：播放时长</li>
+<li><strong>paused</strong> ：播放状态（是否暂停） <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E4%BF%9D%E7%95%99%E6%92%AD%E6%94%BE%E8%BF%9B%E5%BA%A61.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+</ul>
+</li>
+<li>（3）通过【<a class="link" href="https://aplayer.js.org/#/zh-Hans/?id=api"  target="_blank" rel="noopener"
+    >官方文档</a>】可以查找到我们需要调用的接口
+<ul>
+<li><strong>ap.list.switch(index: number)</strong>：切换歌曲</li>
+<li><strong>ap.seek(time: number)</strong>：调整时长</li>
+<li><strong>ap.play()</strong>：播放歌曲</li>
+</ul>
+</li>
+<li>（4）需要的东西已经找齐，只需在 <strong>custom.html</strong> 加入以下代码即可</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 【custom.html】 --&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 页面销毁前监听
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onbeforeunload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 将播放信息用对象封装，并存入到localStorage中
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">playInfo</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">index</span><span class="o">:</span> <span class="nx">ap</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="nx">index</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">currentTime</span><span class="o">:</span> <span class="nx">ap</span><span class="p">.</span><span class="nx">audio</span><span class="p">.</span><span class="nx">currentTime</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">paused</span><span class="o">:</span> <span class="nx">ap</span><span class="p">.</span><span class="nx">paused</span>
+</span></span><span class="line"><span class="cl">        <span class="p">};</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;playInfo&#34;</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">playInfo</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm">     * 页面加载后监听
+</span></span></span><span class="line"><span class="cl"><span class="cm">     */</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 从localStorage取出播放信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="kr">const</span> <span class="nx">playInfo</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&#34;playInfo&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">playInfo</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 切换歌曲
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">ap</span><span class="p">.</span><span class="nx">list</span><span class="p">.</span><span class="k">switch</span><span class="p">(</span><span class="nx">playInfo</span><span class="p">.</span><span class="nx">index</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 等待500ms再执行下一步(切换歌曲需要点时间，不能立马调歌曲进度条)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">setTimeout</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 调整时长
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">ap</span><span class="p">.</span><span class="nx">seek</span><span class="p">(</span><span class="nx">playInfo</span><span class="p">.</span><span class="nx">currentTime</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 是否播放
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">playInfo</span><span class="p">.</span><span class="nx">paused</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="nx">ap</span><span class="p">.</span><span class="nx">play</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">},</span> <span class="mi">500</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="引入pjax">引入PJAX
+</h3><h4 id="基本引入">基本引入
+</h4><ul>
+<li>（1）PJAX主要分为两个版本，<strong>带JQuery</strong> 和 <strong>不带JQuery</strong>的，下面我演示的是不带JQuery版本的
+<ul>
+<li>【<a class="link" href="https://github.com/defunkt/jquery-pjax"  target="_blank" rel="noopener"
+    >defunkt/jquery-pjax</a>】（带JQuery）</li>
+<li>【<a class="link" href="https://github.com/MoOx/pjax"  target="_blank" rel="noopener"
+    >MoOx/pjax</a>】（不带JQuery）</li>
+</ul>
+</li>
+<li>（2）分析页面元素，看哪些是需要我们重新加载的，可以发现是<strong>左侧边栏</strong>，<strong>中间内容</strong>，<strong>右侧边栏</strong> <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/PJAX%E5%BC%95%E5%85%A51.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（3）查看页面源代码，可以发现这些元素都被一个<code>&lt;div class=&quot;main-container&quot;&gt;...&lt;/div&gt;</code>包裹着，所以我们将着元素定为要刷新的对象 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/PJAX%E5%BC%95%E5%85%A52.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（4）根据官方文档，在 <strong>custom.html</strong> 加入以下代码来引入PJAX</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 【custom.html】 --&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://cdn.jsdelivr.net/npm/pjax/pjax.min.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="kd">var</span> <span class="nx">pjax</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pjax</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">	  <span class="nx">selectors</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">	    <span class="s2">&#34;.main-container&#34;</span>
+</span></span><span class="line"><span class="cl">	  <span class="p">]</span>
+</span></span><span class="line"><span class="cl">	<span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em><strong>这样算是已经基本引入了PJAX，但也带来了不少问题，我们一步一步进行修复</strong></em></p>
+<hr>
+<h4 id="文章样式修复">文章样式修复
+</h4><ul>
+<li>（1）随便点进其中一篇文章，可以发现文章内容的样式丢失，缺少文章该有的边框 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%A0%B7%E5%BC%8F%E4%BF%AE%E5%A4%8D1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（2）通过手动刷新，对比页面元素发现，决定文章样式的是<code>&lt;body&gt;</code> 标签中的class名: <strong>article-page</strong>，存在此class名就会识别到文章该有的css <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%A0%B7%E5%BC%8F%E4%BF%AE%E5%A4%8D2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（3）因为<code>&lt;body&gt;</code>内包含整个页面的所有内容，包括我们的音乐播放器，所以不能让PJAX监听<code>&lt;body&gt;</code>标签
+<ul>
+<li>阅读官方文档发现，官方提供了数据预处理方法，让我们处理数据</li>
+<li>我们通过预处理数据，获取到新页面的className，然后我们手动将这className设置到<code>&lt;body&gt;</code>上</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 【custom.html】 --&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pjax</span><span class="p">.</span><span class="nx">_handleResponse</span> <span class="o">=</span> <span class="nx">pjax</span><span class="p">.</span><span class="nx">handleResponse</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pjax</span><span class="p">.</span><span class="nx">handleResponse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">responseText</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">href</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">request</span><span class="p">.</span><span class="nx">responseText</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s2">&#34;&lt;html&#34;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 将新页面的html字符串解析成DOM对象
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kd">let</span> <span class="nx">newDom</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DOMParser</span><span class="p">().</span><span class="nx">parseFromString</span><span class="p">(</span><span class="nx">responseText</span><span class="p">,</span> <span class="s1">&#39;text/html&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 获取新页面中body的className，并设置回当前页面
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="kd">let</span> <span class="nx">bodyClass</span> <span class="o">=</span> <span class="nx">newDom</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">className</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;class&#34;</span><span class="p">,</span> <span class="nx">bodyClass</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 放行pjax处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nx">pjax</span><span class="p">.</span><span class="nx">_handleResponse</span><span class="p">(</span><span class="nx">responseText</span><span class="p">,</span> <span class="nx">request</span><span class="p">,</span> <span class="nx">href</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// handle non-HTML response here
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em><strong>这样我们切页面后，都会自动把body中的className更新，就不会丢失样式了</strong></em></p>
+<hr>
+<h4 id="主题切换修复">主题切换修复
+</h4><ul>
+<li>（1）当我们切换页面后，点击左下角切换主题颜色的按钮，会发现没有效果，主题颜色切换失效了 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E4%BF%AE%E5%A4%8D1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（2）阅读Stack主题源码<code>\assets\ts\colorScheme.ts</code>发现，在脚本初始化时，会给元素绑定一个点击事件。但因为页面切换了，替换了该元素，但没有该元素重新绑定点击事件，导致点击主题切换失效 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E4%BF%AE%E5%A4%8D2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（3）解决思路：在PJAX切换完页面后，重新执行一遍<code>colorScheme.ts</code>的初始化，使元素重新绑定点击事件。
+<ul>
+<li>阅读源码，发现<code>colorScheme.ts</code>被<code>main.ts</code>引用，在<code>main.ts</code>中执行了初始化，并且<code>main.ts</code>生成了个全局变量 <strong>Stack</strong></li>
+<li>所以在PJAX执行完后，使用全局变量 <strong>Stack</strong> ，执行里面的初始化方法，重新执行一遍脚本，来绑定点击事件</li>
+<li>阅读PJAX文档，发现官方也提供了PJAX执行完后的事件，我们执行监听这个事件，<strong>Stack</strong> 执行初始化就好 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E4%BF%AE%E5%A4%8D3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+> <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E4%B8%BB%E9%A2%98%E5%88%87%E6%8D%A2%E4%BF%AE%E5%A4%8D4.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- 【custom.html】 --&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;pjax:complete&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Stack脚本初始化
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nb">window</span><span class="p">.</span><span class="nx">Stack</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em><strong>这样元素的点击事件重新绑定，主题颜色就能正常切换了</strong></em></p>
+<hr>
+<h4 id="文章搜索修复">文章搜索修复
+</h4><ul>
+<li>（1）使用文章搜索功能时，输入关键词，无任何搜索记录，搜索功能失效 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E4%BF%AE%E5%A4%8D1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（2）查看<code>layouts\ts\search.tsx</code>文件，发现情况和上面的<code>colorScheme.ts</code>类似，存在绑定事件 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E4%BF%AE%E5%A4%8D2.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（3）解决思路类似上面的，把 <strong>search.tsx</strong> 初始化内容，封装为一个函数，并把函数 <strong>export</strong> 出来，由 <strong>main.ts</strong> 引入这个函数，并放到 <strong>Stack.init()</strong> 的方法中，利用此方法来重新初始化搜索脚本 - <em><strong>（以下操作请复制同路径同名文件到自己主目录下修改，不要在主题源码中修改）</strong></em> <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E4%BF%AE%E5%A4%8D3.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl">/** 
+</span></span><span class="line"><span class="cl"> * 【search.tsx】
+</span></span><span class="line"><span class="cl"> * 记得把window.addEventListener(&#39;load&#39; ...这部分代码注释掉
+</span></span><span class="line"><span class="cl"> * 初始化工作交给Stack.init()处理了，不需要这个了
+</span></span><span class="line"><span class="cl"> */  
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">function searchInit() {
+</span></span><span class="line"><span class="cl">    let search = document.querySelector(&#39;.search-result&#39;);
+</span></span><span class="line"><span class="cl">    if (search) {
+</span></span><span class="line"><span class="cl">        const searchForm = document.querySelector(&#39;.search-form&#39;) as HTMLFormElement,
+</span></span><span class="line"><span class="cl">            searchInput = searchForm.querySelector(&#39;input&#39;) as HTMLInputElement,
+</span></span><span class="line"><span class="cl">            searchResultList = document.querySelector(&#39;.search-result--list&#39;) as HTMLDivElement,
+</span></span><span class="line"><span class="cl">            searchResultTitle = document.querySelector(&#39;.search-result--title&#39;) as HTMLHeadingElement;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        new Search({
+</span></span><span class="line"><span class="cl">            form: searchForm,
+</span></span><span class="line"><span class="cl">            input: searchInput,
+</span></span><span class="line"><span class="cl">            list: searchResultList,
+</span></span><span class="line"><span class="cl">            resultTitle: searchResultTitle,
+</span></span><span class="line"><span class="cl">            resultTitleTemplate: window.searchResultTitleTemplate
+</span></span><span class="line"><span class="cl">        });
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">export {
+</span></span><span class="line"><span class="cl">    searchInit
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>（4）<strong>tsx</strong> 类型的文件引入方式有点特殊，需要我们修改以下 <strong>main.ts</strong> 的引入方式，修改<code>layouts\partials\footer\components\script.html</code>，改法参考<code>layouts\page\search.html</code>，把<code>&quot;JSXFactory&quot; &quot;createElement&quot;</code>补充上就好 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E4%BF%AE%E5%A4%8D4.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+> <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E4%BF%AE%E5%A4%8D5.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+</ul>
+<p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/%e6%96%87%e7%ab%a0%e6%90%9c%e7%b4%a2%e4%bf%ae%e5%a4%8d6.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%E4%BF%AE%E5%A4%8D6.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><em><strong>这样search.tsx能正常初始化，文章搜索功能恢复</strong></em></p>
+<hr>
+<h4 id="搜索内容跳转修复">搜索内容跳转修复
+</h4><ul>
+<li>（1）虽然文章搜索已经修复了，但搜索出来的内容并没有被PJAX识别到，导致PJAX没有拦截，进而导致页面刷新了</li>
+<li>（2）阅读 <strong>search.tsx</strong> 源码可知，搜索内容的数据，是通过React.render，动态渲染回页面的，这些没有触发PJAX，所以PJAX没有识别到。阅读PJAX文档，官方提供给了我们重新解析数的方法，所以在React.render之后，我调用PJAX方法，重新解析页面即可 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%90%9C%E7%B4%A2%E5%86%85%E5%AE%B9%E8%B7%B3%E8%BD%AC%E4%BF%AE%E5%A4%8D1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * 【search.tsx】
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">private</span> <span class="kr">async</span> <span class="nx">doSearch</span><span class="p">(</span><span class="nx">keywords</span>: <span class="kt">string</span><span class="p">[])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="cm">/* 
+</span></span></span><span class="line"><span class="cl"><span class="cm">    方法末尾，让pjax重新解析文档数据，识别动态渲染的数据
+</span></span></span><span class="line"><span class="cl"><span class="cm">    虽然当前文件没有pjax对象，但最后静态页面会生成一个整体的js文件
+</span></span></span><span class="line"><span class="cl"><span class="cm">    pjax对象那时就能识别到，就可成功调用
+</span></span></span><span class="line"><span class="cl"><span class="cm">    */</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">pjax</span><span class="p">.</span><span class="nx">refresh</span><span class="p">(</span><span class="nb">document</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em><strong>这样动态渲染出的页面数据就能被PJAX识别到，就不会刷新页面跳转了</strong></em></p>
+<hr>
+<h4 id="文章评论修复">文章评论修复
+</h4><ul>
+<li>（1）如果博客有开启评论功能的话，会发现评论的脚本不生效了</li>
+<li>（2）由于每个人使用的评论种类各不相同，所以这边也是简单说一下。PJAX官方文档也有说如何处理：
+<ul>
+<li>用一个<code>&lt;div class=js-Pjax&gt;&lt;/div&gt;</code>来包裹一个<code>&lt;script&gt;&lt;/script&gt;</code></li>
+<li>在<code>&lt;script&gt;</code>标签中，通过<code>document.createElement('script')</code>形式，创建对应的评论脚本内容</li>
+<li>pjax对象通过 <strong>.js-Pjax</strong> 被识别到此内容，进行脚本执行 <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E6%96%87%E7%AB%A0%E8%AF%84%E8%AE%BA%E4%BF%AE%E5%A4%8D1.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- custom.html --&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">pjax</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Pjax</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">selectors</span><span class="o">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="cl">            <span class="s2">&#34;.js-Pjax&#34;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;js-Pjax&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// TODO: 判断当前是否是文档，且是否开启评论功能
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kd">let</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 将对应评论的脚本内容填进去
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>             <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="p">...</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// 寻找合适的元素，添加脚本进去
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;xxx&#39;</span><span class="p">).</span><span class="nx">appendchild</span><span class="p">(</span><span class="nx">script</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">})(</span><span class="nb">document</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><em><strong>这样PJAX会自动加载我们的评论脚本</strong></em></p>
+<hr>
+<h2 id="引入进度条">引入进度条
+</h2><ul>
+<li>（1）由于使用了PJAX后，无法得知页面的加载情况是否完成，所以引入一个伪进度条，来显示页面内容进度</li>
+<li>（2）前往【<a class="link" href="https://buunguyen.github.io/topbar/"  target="_blank" rel="noopener"
+    >topbar</a>】，点击下载zip包，将解压后的 <strong>topbar.min.js</strong> 放到<code>assets\js\topbar.min.js</code> <img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E5%BC%95%E5%85%A5%E8%BF%9B%E5%BA%A6%E6%9D%A11.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></li>
+<li>（3）通过监听PJAX两个事件 <strong>pjax:send</strong> 和 <strong>pjax:complete</strong> 实现伪进度条</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!--custom.html--&gt;</span>
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">{{ with resources.Get &#34;js/topbar.min.js&#34; }}
+</span></span><span class="line"><span class="cl">    <span class="c">&lt;!-- 引入本地JS脚本 --&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">{{</span> <span class="err">.</span><span class="na">Permalink</span> <span class="err">}}</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">{{ end }}
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 修改进度条颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">topbar</span><span class="p">.</span><span class="nx">config</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">barColors</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;0&#39;</span><span class="o">:</span> <span class="s1">&#39;rgba(255,  255, 255, 1)&#39;</span><span class="p">,</span> <span class="c1">// 进度0%白色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="s1">&#39;1.0&#39;</span><span class="o">:</span> <span class="s1">&#39;rgba(0, 149, 234,  1)&#39;</span> <span class="c1">// 进度100%蓝色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;pjax:send&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 显示顶部进度条
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">topbar</span><span class="p">.</span><span class="nx">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">    <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;pjax:complete&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="p">....</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// 隐藏顶部进度条
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nx">topbar</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%e5%bc%95%e5%85%a5%e9%9f%b3%e4%b9%90%e6%92%ad%e6%94%be%e6%94%be%e5%99%a8%e5%b9%b6%e5%ae%9e%e7%8e%b0%e9%9f%b3%e4%b9%90%e4%b8%8d%e4%b8%ad%e6%96%ad%e5%8a%9f%e8%83%bd/%e5%bc%95%e5%85%a5%e8%bf%9b%e5%ba%a6%e6%9d%a12.png"  target="_blank" rel="noopener"
+    ><img src="https://letere-gzj.github.io/hugo-stack/p/hugoaplayer--pjax-%E5%BC%95%E5%85%A5%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%94%BE%E5%99%A8%E5%B9%B6%E5%AE%9E%E7%8E%B0%E9%9F%B3%E4%B9%90%E4%B8%8D%E4%B8%AD%E6%96%AD%E5%8A%9F%E8%83%BD/%E5%BC%95%E5%85%A5%E8%BF%9B%E5%BA%A6%E6%9D%A12.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="img"
+	
+	
+></a></p>
+<p><em><strong>这样伪进度条就成功引入了，能大概知道页面的加载情况了</strong></em></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+            <a href="/tags/blog/">Blog</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Sep 27, 2024 00:26 CST
+        </span>
+    </section></footer>
+
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/hugo%E8%AF%AD%E6%B3%95/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hugo语法</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2024 qingjiegong
+    </section>
+    
+    
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<meting-js
+	server="netease"
+	type="playlist"
+	id="868680297"
+	fixed="true"
+	loop="all"
+	order="list"
+	autoplay="true"
+	lrc-type="0"
+	list-folded="flase">
+</meting-js>
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+    
+    <script src=https://Mr-qingjiegong.github.io/js/topbar.min.js></script>
+
+
+<script>
+	var pjax = new Pjax({
+		
+		selectors: [".main-container"]
+	})
+	
+	pjax._handleResponse = pjax.handleResponse;
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            
+            pjax._handleResponse(responseText, request, href, options);
+        } else {
+            
+        }
+    }
+	
+	
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {
+        ....
+        
+        topbar.hide();
+    })
+	
+	document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
+    </body>
+</html>

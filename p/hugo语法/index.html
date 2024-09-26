@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="命令 详细内容请查看官方文档手册： Commands | Hugo官方文档 (opendocs.io) 命令 简解 ⭐hugo hugo 用于构建您的网站 ⭐hugo convert 将您的内容转换为不同的格式 hugo convert toJSON 将前置">
+<title>Hugo语法</title>
+
+<link rel='canonical' href='https://Mr-qingjiegong.github.io/p/hugo%E8%AF%AD%E6%B3%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.d368f4f7632b410d4235195bda664e5bc42ca04afcf0feb15c9096bf0944948e.css"><meta property='og:title' content="Hugo语法">
+<meta property='og:description' content="命令 详细内容请查看官方文档手册： Commands | Hugo官方文档 (opendocs.io) 命令 简解 ⭐hugo hugo 用于构建您的网站 ⭐hugo convert 将您的内容转换为不同的格式 hugo convert toJSON 将前置">
+<meta property='og:url' content='https://Mr-qingjiegong.github.io/p/hugo%E8%AF%AD%E6%B3%95/'>
+<meta property='og:site_name' content='qingjiegong&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='hugo' /><meta property='article:published_time' content='2024-09-26T22:42:13&#43;08:00'/><meta property='article:modified_time' content='2024-09-27T00:39:42&#43;08:00'/>
+<meta name="twitter:title" content="Hugo语法">
+<meta name="twitter:description" content="命令 详细内容请查看官方文档手册： Commands | Hugo官方文档 (opendocs.io) 命令 简解 ⭐hugo hugo 用于构建您的网站 ⭐hugo convert 将您的内容转换为不同的格式 hugo convert toJSON 将前置">
+    <link rel="shortcut icon" href="/qingjiegong.ico" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="https://mr-qingjiegong.github.io">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/qingjiegong_hu8d8cb97884cae8eefc6672bf5d9adf29_12207_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">qingjiegong&#39;s Blog</a></h1>
+            <h2 class="site-description">吃水果嘛？卖荔枝哦！</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/mr-qingjiegong'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1725908862181" class="icon" viewBox="0 0 1049 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6114" id="mx_n_1725908862182" width="24.5859375" height="24" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z" fill="#2c3e50" p-id="6115"></path><path d="M199.040177 753.571326c-0.869171 2.607513-5.215026 3.476684-8.691711 1.738342s-6.084198-5.215026-4.345855-7.82254c0.869171-2.607513 5.215026-3.476684 8.691711-1.738342s5.215026 5.215026 4.345855 7.82254z m-6.953369-4.345856M219.900283 777.038945c-2.607513 2.607513-7.82254 0.869171-10.430053-2.607514-3.476684-3.476684-4.345855-8.691711-1.738342-11.299224 2.607513-2.607513 6.953369-0.869171 10.430053 2.607514 3.476684 4.345855 4.345855 9.560882 1.738342 11.299224z m-5.215026-5.215027M240.760389 807.459932c-3.476684 2.607513-8.691711 0-11.299224-4.345855-3.476684-4.345855-3.476684-10.430053 0-12.168395 3.476684-2.607513 8.691711 0 11.299224 4.345855 3.476684 4.345855 3.476684 9.560882 0 12.168395z m0 0M269.443034 837.011749c-2.607513 3.476684-8.691711 2.607513-13.906737-1.738342-4.345855-4.345855-6.084198-10.430053-2.607513-13.037566 2.607513-3.476684 8.691711-2.607513 13.906737 1.738342 4.345855 3.476684 5.215026 9.560882 2.607513 13.037566z m0 0M308.555733 853.526c-0.869171 4.345855-6.953369 6.084198-13.037566 4.345855-6.084198-1.738342-9.560882-6.953369-8.691711-10.430053 0.869171-4.345855 6.953369-6.084198 13.037566-4.345855 6.084198 1.738342 9.560882 6.084198 8.691711 10.430053z m0 0M351.145116 857.002684c0 4.345855-5.215026 7.82254-11.299224 7.82254-6.084198 0-11.299224-3.476684-11.299224-7.82254s5.215026-7.82254 11.299224-7.82254c6.084198 0 11.299224 3.476684 11.299224 7.82254z m0 0M391.126986 850.049315c0.869171 4.345855-3.476684 8.691711-9.560882 9.560882-6.084198 0.869171-11.299224-1.738342-12.168395-6.084197-0.869171-4.345855 3.476684-8.691711 9.560881-9.560882 6.084198-0.869171 11.299224 1.738342 12.168396 6.084197z m0 0" fill="#2c3e50" p-id="6116"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/53318096'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1726642757920" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4266" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M262.4 64h499.2C892.8 64 960 131.2 960 262.4v499.2c0 131.2-67.2 198.4-198.4 198.4H262.4C131.2 960 64 892.8 64 761.6V262.4C64 131.2 131.2 64 262.4 64z" fill="#FF5CA1" p-id="4267"></path><path d="M707.2 454.4c3.2 0 16-3.2 16-3.2l6.4 48-12.8 3.2c0-6.4-9.6-44.8-9.6-48m25.6-6.4l6.4 51.2h19.2c-3.2-19.2-9.6-51.2-9.6-51.2h-16m-12.8 70.4s28.8-6.4 38.4-3.2c6.4 19.2 16 128 16 131.2-6.4 0-28.8 3.2-28.8 3.2-3.2-6.4-25.6-124.8-25.6-131.2m105.6-64h16c0 3.2 3.2 48 0 48h-12.8c0-3.2-3.2-44.8-3.2-48m22.4 0v51.2h19.2v-51.2c-6.4 0-12.8-3.2-19.2 0m-19.2 67.2s28.8-3.2 38.4 0c3.2 22.4 3.2 128 3.2 131.2h-28.8c0-6.4-12.8-128-12.8-131.2m-67.2-131.2c16 86.4 28.8 236.8 32 246.4h28.8c-12.8-92.8-22.4-243.2-22.4-246.4-3.2-6.4-38.4 0-38.4 0m-38.4 208c-3.2-25.6-89.6-51.2-140.8-44.8 0 0-6.4-54.4-9.6-105.6-3.2-44.8 0-89.6 0-96-3.2-3.2-38.4 16-57.6 22.4 0 0 22.4 96 38.4 297.6 0 0 25.6 3.2 70.4-6.4 51.2-9.6 102.4-35.2 99.2-67.2M617.6 640l-9.6-54.4c3.2 0 48 16 54.4 19.2 0 3.2-44.8 35.2-44.8 35.2m-275.2-185.6c3.2 0 16-3.2 16-3.2l6.4 48c-3.2 0-12.8 3.2-12.8 3.2 0-6.4-9.6-44.8-9.6-48m25.6-6.4l6.4 51.2h19.2c-3.2-19.2-6.4-51.2-6.4-51.2h-19.2m-12.8 70.4s28.8-6.4 38.4-3.2c6.4 19.2 16 128 16 131.2-6.4 0-28.8 3.2-28.8 3.2-3.2-6.4-25.6-124.8-25.6-131.2m105.6-64h16c0 3.2 3.2 48 0 48h-12.8c0-3.2-3.2-44.8-3.2-48m25.6 0v51.2h19.2v-51.2c-6.4 0-12.8-3.2-19.2 0m-22.4 67.2s28.8-3.2 38.4 0c3.2 22.4 3.2 128 3.2 131.2h-28.8c0-6.4-12.8-128-12.8-131.2m-67.2-131.2c16 86.4 28.8 236.8 32 246.4h28.8c-9.6-92.8-19.2-243.2-19.2-249.6-6.4-3.2-41.6 3.2-41.6 3.2m-38.4 208c-3.2-25.6-89.6-51.2-140.8-44.8 0 0-6.4-54.4-9.6-105.6-3.2-44.8 0-89.6 0-96-3.2-3.2-38.4 16-57.6 22.4 0 0 22.4 96 38.4 297.6 0 0 25.6 3.2 70.4-6.4s105.6-35.2 99.2-67.2M252.8 640l-6.4-54.4c3.2 0 48 16 54.4 19.2-3.2 3.2-48 35.2-48 35.2" fill="#FFFFFF" p-id="4268"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com/qingjiegong0727'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1725909865470" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7073" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24"><path d="M511.877 64.434c-247.191 0-447.579 200.388-447.579 447.58s200.388 447.579 447.579 447.579 447.579-200.388 447.579-447.579-200.387-447.58-447.579-447.58z m256.885 357.662c0.273 5.559 0.341 11.118 0.341 16.748 0 170.483-126.686 367.294-358.302 367.294-71.169 0-137.326-21.328-193.047-58.215 9.821 1.224 19.949 1.923 30.111 1.923 58.961 0 113.285-20.594 156.354-55.313-55.074-0.909-101.622-38.076-117.649-89.647 7.741 1.678 15.584 2.377 23.666 2.377 11.492 0 22.643-1.573 33.249-4.405-57.665-12.028-101.042-64.193-101.042-126.604 0-0.525 0-1.189 0.034-1.748 16.914 9.825 36.284 15.384 56.983 16.083-33.828-23.006-56.063-62.655-56.063-107.409 0-23.6 6.275-45.733 17.085-64.788 62.064 78.074 154.956 129.471 259.511 134.75-2.08-9.37-3.274-19.195-3.274-29.404 0-71.291 56.404-129.121 125.97-129.121 36.216 0 68.987 15.804 91.903 40.943 28.782-5.979 55.756-16.538 80.07-31.293-9.412 30.104-29.361 55.313-55.483 71.291 25.508-3.077 49.754-10.035 72.397-20.279-16.913 25.804-38.227 48.566-62.814 66.817z" fill="#2DA9E3" p-id="7074"></path></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#命令">命令</a></li>
+    <li><a href="#前置格式">前置格式</a>
+      <ol>
+        <li><a href="#前置格式格式">前置格式格式</a>
+          <ol>
+            <li><a href="#示例">示例</a></li>
+          </ol>
+        </li>
+        <li><a href="#前置格式变量">前置格式变量</a>
+          <ol>
+            <li><a href="#预定义">预定义</a></li>
+            <li><a href="#用户定义的">用户定义的</a></li>
+            <li><a href="#示例-1">示例</a></li>
+          </ol>
+        </li>
+        <li><a href="#前置格式级联">前置格式级联</a>
+          <ol>
+            <li><a href="#针对特定页面">针对特定页面</a></li>
+            <li><a href="#示例-2">示例</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/hugo/" >
+                Hugo
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/hugo%E8%AF%AD%E6%B3%95/">Hugo语法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 26, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+	
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="命令">命令
+</h2><p>详细内容请查看官方文档手册：</p>
+<p><a class="link" href="https://hugo.opendocs.io/commands/"  target="_blank" rel="noopener"
+    >Commands | Hugo官方文档 (opendocs.io)</a></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>简解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⭐hugo</td>
+<td>hugo 用于构建您的网站</td>
+</tr>
+<tr>
+<td>⭐hugo convert</td>
+<td>将您的内容转换为不同的格式</td>
+</tr>
+<tr>
+<td>hugo convert toJSON</td>
+<td>将前置内容转换为JSON格式</td>
+</tr>
+<tr>
+<td>⭐hugo deploy</td>
+<td>将您的网站部署到云服务提供商</td>
+</tr>
+<tr>
+<td>⭐hugo env</td>
+<td>打印Hugo版本和环境信息</td>
+</tr>
+<tr>
+<td>hugo gen</td>
+<td>一系列有用的生成器集合</td>
+</tr>
+<tr>
+<td>hugo gen chromastyles</td>
+<td>生成用于 Chroma 代码高亮的 CSS 样式表</td>
+</tr>
+<tr>
+<td>hugo gen doc</td>
+<td>生成Hugo CLI的Markdown文档</td>
+</tr>
+<tr>
+<td>hugo gen man</td>
+<td>生成Hugo CLI的man页</td>
+</tr>
+<tr>
+<td>⭐hugo import</td>
+<td>从其他网站生成器导入你的网站</td>
+</tr>
+<tr>
+<td>⭐hugo import jekyll</td>
+<td>从Jekyll导入到Hugo</td>
+</tr>
+<tr>
+<td>⭐hugo list</td>
+<td>列出各种类型的内容</td>
+</tr>
+<tr>
+<td>⭐hugo list all</td>
+<td>列出所有文章</td>
+</tr>
+<tr>
+<td>⭐hugo list drafts</td>
+<td>列出所有草稿</td>
+</tr>
+<tr>
+<td>hugo list expired</td>
+<td>列出已过期的所有文章</td>
+</tr>
+<tr>
+<td>hugo list future</td>
+<td>列出所有未来日期的文章</td>
+</tr>
+<tr>
+<td>hugo mod</td>
+<td>Hugo模块的各种辅助工具</td>
+</tr>
+<tr>
+<td>⭐hugo mod clean</td>
+<td>删除当前项目的Hugo模块缓存</td>
+</tr>
+<tr>
+<td>⭐hugo mod get</td>
+<td>解决当前 Hugo 项目的依赖关系</td>
+</tr>
+<tr>
+<td>⭐hugo mod init</td>
+<td>将此项目初始化为Hugo模块</td>
+</tr>
+<tr>
+<td>hugo mod npm</td>
+<td>各种npm助手</td>
+</tr>
+<tr>
+<td>hugo mod npm pack</td>
+<td>实验性功能：为您的项目准备并编写一个复合的 package.json 文件</td>
+</tr>
+<tr>
+<td>hugo mod tidy</td>
+<td>删除 go.mod 和 go.sum 中未使用的条目</td>
+</tr>
+<tr>
+<td>hugo mod vendor</td>
+<td>将所有模块依赖项打包到 _vendor 目录中</td>
+</tr>
+<tr>
+<td>hugo mod verify</td>
+<td>验证依赖项</td>
+</tr>
+<tr>
+<td>⭐hugo new</td>
+<td>创建站点的新内容</td>
+</tr>
+<tr>
+<td>⭐hugo new content</td>
+<td>为您的网站创建新内容</td>
+</tr>
+<tr>
+<td>⭐hugo new site</td>
+<td>创建新站点（框架）</td>
+</tr>
+<tr>
+<td>⭐hugo new theme</td>
+<td>创建一个名为[name]的新主题（模板）</td>
+</tr>
+<tr>
+<td>⭐hugo server</td>
+<td>高性能的网页服务器</td>
+</tr>
+<tr>
+<td>hugo server trust</td>
+<td>将本地 CA 安装到系统的信任存储中</td>
+</tr>
+<tr>
+<td>hugo convert toTOML</td>
+<td>将前置信息转换为 TOML 格式</td>
+</tr>
+<tr>
+<td>⭐hugo version</td>
+<td>打印Hugo版本和环境信息</td>
+</tr>
+<tr>
+<td>hugo completion zsh</td>
+<td>生成用于zsh shell的自动补全脚本</td>
+</tr>
+<tr>
+<td>hugo completion powershell</td>
+<td>为powershell生成自动补全脚本</td>
+</tr>
+<tr>
+<td>⭐hugo mod graph</td>
+<td>打印模块依赖图</td>
+</tr>
+<tr>
+<td>⭐hugo config</td>
+<td>打印站点配置</td>
+</tr>
+<tr>
+<td>⭐hugo config mounts</td>
+<td>打印已配置的文件挂载</td>
+</tr>
+<tr>
+<td>hugo completion</td>
+<td>为指定的shell生成自动完成脚本</td>
+</tr>
+<tr>
+<td>hugo completion fish</td>
+<td>生成fish shell的自动补全脚本</td>
+</tr>
+<tr>
+<td>hugo convert toyaml</td>
+<td>将前置内容转换为YAML格式</td>
+</tr>
+<tr>
+<td>⭐hugo completion bash</td>
+<td>生成bash shell的自动完成脚本</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="前置格式">前置格式
+</h2><p>来源：<a class="link" href="https://hugo.opendocs.io/content-management/front-matter/"  target="_blank" rel="noopener"
+    >前置格式 | Hugo官方文档 (opendocs.io)</a></p>
+<p>Hugo允许您在内容文件中使用yaml、toml或json来添加前置格式。</p>
+<p><strong>前置格式</strong>允许您将元数据附加到[内容类型]的实例中-即嵌入在内容文件中，并且是Hugo赋予其强大功能的众多特性之一。</p>
+<blockquote>
+<p>文章的开头里的前置格式编写将影响接下来整篇文章的环境配置</p>
+</blockquote>
+<h3 id="前置格式格式">前置格式格式
+</h3><p>Hugo支持四种前置格式格式，每种格式都有其自己的标识标记。</p>
+<ul>
+<li>
+<p>TOML</p>
+<p>标识符为开放和关闭的 <code>+++</code>。</p>
+</li>
+<li>
+<p>YAML</p>
+<p>标识符为开放和关闭的 <code>---</code>。</p>
+</li>
+<li>
+<p>JSON</p>
+<p>由单个由<code>{</code>和<code>}</code>括起来的JSON对象组成，后跟一个新行。</p>
+</li>
+<li>
+<p>ORG</p>
+<p>Org模式关键字组，格式为 <code>#+KEY: VALUE</code> 。任何不以<code>#+</code>开头的行都会结束前置格式部分。 关键字值可以是字符串（<code>#+KEY: VALUE</code>）或以空格分隔的字符串列表（<code>#+KEY[]: VALUE_1 VALUE_2</code>）。</p>
+</li>
+</ul>
+<h4 id="示例">示例
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">categories</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">Development</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">VIM</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">date</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2012-04-06&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">spf13-vim是适用于Vim的跨平台vim插件和资源分发。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">slug</span><span class="p">:</span><span class="w"> </span><span class="l">spf13-vim-3-0-release-and-new-website</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">tags</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">.vimrc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">plugins</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">spf13-vim</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="l">vim</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">spf13-vim 3.0版本发布和新网站</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="前置格式变量">前置格式变量
+</h3><h4 id="预定义">预定义
+</h4><p>Hugo有一些预定义的变量。请参阅<a class="link" href="https://hugo.opendocs.io/variables/page/"  target="_blank" rel="noopener"
+    >页面变量</a>了解如何在模板中调用这些预定义变量的方法。</p>
+<ul>
+<li>
+<p>aliases</p>
+<p>一个包含一个或多个别名（例如已重命名内容的旧发布路径）的数组，这些别名将在输出目录结构中创建。有关详细信息，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/urls/#aliases"  target="_blank" rel="noopener"
+    >别名</a>。</p>
+</li>
+<li>
+<p>audio</p>
+<p>与页面相关的音频文件路径数组；<code>opengraph</code> <a class="link" href="https://hugo.opendocs.io/templates/internal/"  target="_blank" rel="noopener"
+    >内部模板</a>使用它来填充 <code>og:audio</code>。</p>
+</li>
+<li>
+<p>cascade</p>
+<p>一组前置格式键的映射，其值会传递给页面的子页，除非被自身或更近的祖先级别的cascade覆盖。有关详细信息，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/front-matter/#%e5%89%8d%e7%bd%ae%e6%a0%bc%e5%bc%8f%e7%ba%a7%e8%81%94"  target="_blank" rel="noopener"
+    >前置格式级联</a> 。</p>
+</li>
+<li>
+<p>date</p>
+<p>分配给此页面的日期时间。通常从前置格式的<code>date</code>字段获取此值，但此行为是可配置的。</p>
+</li>
+<li>
+<p>description</p>
+<p>内容的描述。</p>
+</li>
+<li>
+<p>draft</p>
+<p>如果为<code>true</code>，则只有在向<code>hugo</code>命令传递了<code>--buildDrafts</code>标志时，内容才会被呈现。</p>
+</li>
+<li>
+<p>expiryDate</p>
+<p>内容不再由Hugo发布的日期时间；过期内容只有在向<code>hugo</code>命令传递了<code>--buildExpired</code>标志时才会呈现。</p>
+</li>
+<li>
+<p>headless</p>
+<p>如果为<code>true</code>，则将叶子包设置为<a class="link" href="https://hugo.opendocs.io/content-management/page-bundles/#headless-bundle"  target="_blank" rel="noopener"
+    >无头</a>。</p>
+</li>
+<li>
+<p>images</p>
+<p>与页面相关的图像文件路径数组；用于<a class="link" href="https://hugo.opendocs.io/templates/internal/"  target="_blank" rel="noopener"
+    >内部模板</a>，如<code>_internal/twitter_cards.html</code>。</p>
+</li>
+<li>
+<p>isCJKLanguage</p>
+<p>如果为<code>true</code>，Hugo将明确将内容视为CJK语言；在CJK语言中<code>.Summary</code>和<code>.WordCount</code>都能正确工作。</p>
+</li>
+<li>
+<p>keywords</p>
+<p>内容的元关键字。</p>
+</li>
+<li>
+<p>layout</p>
+<p>当渲染内容时，Hugo应从<a class="link" href="https://hugo.opendocs.io/templates/lookup-order/"  target="_blank" rel="noopener"
+    >查找顺序</a>中选择的布局。如果在前置格式中未指定<code>type</code>，Hugo将在与内容部分对应的布局目录中查找相同名称的布局。请参阅<a class="link" href="https://hugo.opendocs.io/content-management/types/"  target="_blank" rel="noopener"
+    >内容类型</a>。</p>
+</li>
+<li>
+<p>lastmod</p>
+<p>内容最后修改的日期时间。</p>
+</li>
+<li>
+<p>linkTitle</p>
+<p>用于创建到内容的链接；如果设置了，Hugo默认使用<code>title</code>前的<code>linkTitle</code>。</p>
+</li>
+<li>
+<p>markup</p>
+<p><strong>实验性</strong>; 指定 <code>&quot;rst&quot;</code> 以获取reStructuredText（需要 <code>rst2html</code>）或 <code>&quot;md&quot;</code>（默认）以获取Markdown。</p>
+</li>
+<li>
+<p>outputs</p>
+<p>允许您指定特定于内容的输出格式。请参阅<a class="link" href="https://hugo.opendocs.io/templates/output-formats/"  target="_blank" rel="noopener"
+    >输出格式</a>。</p>
+</li>
+<li>
+<p>publishDate</p>
+<p>如果发布日期在未来，只有在向<code>hugo</code>命令传递了<code>--buildFuture</code>标志时才会呈现内容。</p>
+</li>
+<li>
+<p>resources</p>
+<p>用于配置页面包资源。请参阅<a class="link" href="https://hugo.opendocs.io/content-management/page-resources/"  target="_blank" rel="noopener"
+    >页面资源</a>。</p>
+</li>
+<li>
+<p>series</p>
+<p>此页面所属系列的数组，作为<code>series</code> <a class="link" href="https://hugo.opendocs.io/content-management/taxonomies/"  target="_blank" rel="noopener"
+    >分类法</a>的子集；被<code>opengraph</code><a class="link" href="https://hugo.opendocs.io/templates/internal/"  target="_blank" rel="noopener"
+    >内部模板</a>用于填充 <code>og:see_also</code>。</p>
+</li>
+<li>
+<p>slug</p>
+<p>覆盖URL路径的最后一段。不适用于部分页面。有关详细信息，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/urls/#slug"  target="_blank" rel="noopener"
+    >URL管理</a>。</p>
+</li>
+<li>
+<p>summary</p>
+<p>在<code>.Summary</code>页面变量中提供文章摘要时使用的文本；有关详细信息，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/summaries/"  target="_blank" rel="noopener"
+    >内容摘要</a>部分。</p>
+</li>
+<li>
+<p>title</p>
+<p>内容的标题。</p>
+</li>
+<li>
+<p>type</p>
+<p>内容的类型；如果未在前置格式中指定，此值将自动从目录（即[部分]）中派生。</p>
+</li>
+<li>
+<p>url</p>
+<p>覆盖整个URL路径。适用于常规页面和部分页面。有关详细信息，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/urls/#url"  target="_blank" rel="noopener"
+    >URL管理</a>。</p>
+</li>
+<li>
+<p>videos</p>
+<p>与页面相关的视频文件路径数组；<code>opengraph</code> <a class="link" href="https://hugo.opendocs.io/templates/internal/"  target="_blank" rel="noopener"
+    >内部模板</a>使用它来填充 <code>og:video</code>。</p>
+</li>
+<li>
+<p>weight</p>
+<p>用于<a class="link" href="https://hugo.opendocs.io/templates/lists/"  target="_blank" rel="noopener"
+    >对内容排序</a>。较低的权重会更优先显示。如果设置了权重，则权重应为非零，因为0会被解释为未设置的权重。</p>
+</li>
+<li>
+<taxonomies>
+<p>索引的<em>复数</em>形式的字段名称。请参阅上述前置格式示例中的<code>tags</code>和<code>categories</code>。<em>请注意，用户定义的分类法的复数形式不能与任何预定义的前置格式变量相同。</em></p>
+</li>
+</ul>
+<p>如果既不存在<code>slug</code>也不存在<code>url</code>，且<a class="link" href="https://hugo.opendocs.io/content-management/urls/#permalinks"  target="_blank" rel="noopener"
+    >在站点配置文件中未以其他方式配置永久链接</a>，Hugo将使用内容文件的文件名创建输出URL。有关Hugo路径的说明，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/organization/"  target="_blank" rel="noopener"
+    >内容组织</a> ，有关自定义Hugo默认行为的方法，请参阅<a class="link" href="https://hugo.opendocs.io/content-management/urls/"  target="_blank" rel="noopener"
+    >URL管理</a>。</p>
+<h4 id="用户定义的">用户定义的
+</h4><p>您可以将字段任意添加到前置格式中，以满足您的需求。这些用户定义的键值对被放置在单个<code>.Params</code>变量中，用于在模板中使用。</p>
+<p><code>include_toc</code> 和 <code>show_comments</code> 可以通过 <code>.Params.include_toc</code> 和 <code>.Params.show_comments</code> 使用。有关在模板中使用Hugo的页面级和站点级变量的更多信息，请参阅[变量]章节。</p>
+<h4 id="示例-1">示例
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">include_toc</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">show_comments</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="前置格式级联">前置格式级联
+</h3><p>只要在保留的<code>cascade</code>前置格式键下方定义，任何节点或部分都可以将一组前置格式值传递给其子代。</p>
+<h4 id="针对特定页面">针对特定页面
+</h4><p><code>cascade</code>块可以是一个带有可选<code>_target</code>关键字的片段，允许多个<code>cascade</code>值针对不同的页面集进行定位。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cascade</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">_target</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">page</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l">en</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/blog/**</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">background</span><span class="p">:</span><span class="w"> </span><span class="l">yosemite.jpg</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">_target</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">section</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">background</span><span class="p">:</span><span class="w"> </span><span class="l">goldenbridge.jpg</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Blog</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>可用于 <code>_target</code> 的关键字：</p>
+<ul>
+<li>
+<p>path</p>
+<p><a class="link" href="https://github.com/gobwas/glob"  target="_blank" rel="noopener"
+    >Glob</a>模式，用于匹配/content下方的内容路径。期望的是类Unix的斜杠。匹配支持双星号，因此可以匹配像<code>/blog/*/**</code>这样的模式，以匹配三级及以下的内容。</p>
+</li>
+<li>
+<p>kind</p>
+<p>匹配页面的类型的Glob模式，例如<code>{home,section}</code>。</p>
+</li>
+<li>
+<p>lang</p>
+<p>匹配页面的语言的Glob模式，例如<code>{en,sv}</code>。</p>
+</li>
+<li>
+<p>environment</p>
+<p>匹配构建环境的Glob模式，例如<code>{production,development}</code>。</p>
+</li>
+</ul>
+<p>上述的任何一个都可以省略。</p>
+<h4 id="示例-2">示例
+</h4><p>在<code>content/blog/_index.md</code>中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">cascade</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">banner</span><span class="p">:</span><span class="w"> </span><span class="l">images/typewriter.jpg</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l">Blog</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>有了上面的示例，当调用<code>.Params.banner</code>时，Blog部分页面及其子页面将返回<code>images/typewriter.jpg</code>，除非：</p>
+<ul>
+<li>该子页面设置了自己的<code>banner</code>值</li>
+<li>或更近的祖先节点设置了自己的<code>cascade.banner</code>值。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/hugo/">Hugo</a>
+        
+    </section>
+
+
+    <section class="article-lastmod">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+        <span>
+            最后更新于 Sep 27, 2024 00:39 CST
+        </span>
+    </section></footer>
+
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/hugo%E9%83%A8%E7%BD%B2%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hugo部署静态博客</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2018 - 
+        
+        2024 qingjiegong
+    </section>
+    
+    
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<meting-js
+	server="netease"
+	type="playlist"
+	id="868680297"
+	fixed="true"
+	loop="all"
+	order="list"
+	autoplay="true"
+	lrc-type="0"
+	list-folded="flase">
+</meting-js>
+<script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script>
+
+
+    
+    <script src=https://Mr-qingjiegong.github.io/js/topbar.min.js></script>
+
+
+<script>
+	var pjax = new Pjax({
+		
+		selectors: [".main-container"]
+	})
+	
+	pjax._handleResponse = pjax.handleResponse;
+    pjax.handleResponse = function(responseText, request, href, options) {
+        if (request.responseText.match("<html")) {
+            
+            let newDom = new DOMParser().parseFromString(responseText, 'text/html');
+            
+            let bodyClass = newDom.body.className;
+            document.body.setAttribute("class", bodyClass)
+            
+            pjax._handleResponse(responseText, request, href, options);
+        } else {
+            
+        }
+    }
+	
+	
+    topbar.config({
+        barColors: {
+            '0': 'rgba(255,  255, 255, 1)', 
+            '1.0': 'rgba(0, 149, 234,  1)' 
+        }
+    })
+	
+    document.addEventListener('pjax:send', () => {
+        
+        topbar.show();
+    })
+	
+    document.addEventListener('pjax:complete', () => {
+        ....
+        
+        topbar.hide();
+    })
+	
+	document.addEventListener('pjax:complete', () => {
+        
+        window.Stack.init();
+    })
+</script>
+    </body>
+</html>
